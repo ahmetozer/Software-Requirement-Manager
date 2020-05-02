@@ -1,6 +1,7 @@
 import java.io.BufferedInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import java.net.URL;
 
 public class http_downloader {
@@ -26,4 +27,9 @@ public class http_downloader {
 		
 	}
   }
+	
+	public static String getDomainName(String URL) throws Exception {
+	    URL aURL = new URL(URL);
+	    return aURL.getHost().toString();
+	}
 }
