@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.net.URL;
 
 public class http_downloader {
+	public static void get(String URL) { //function proxy
+		http_downloader(URL);
+	}
 	public static void http_downloader() {
 		System.out.println("URL is not defined. Please give a download url");
 	}
@@ -19,7 +22,7 @@ public class http_downloader {
 			    }
 	} catch (IOException e) {
 			    // handle exception
-		System.out.println("Error. Some think happened while downloading" + URL + "\n" + e);
+		System.out.println("Error. Some think happened while downloading" + URL + "\n" + e + "\n");
 		
 	}
   }
