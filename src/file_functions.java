@@ -45,8 +45,8 @@ public class file_functions {
 	  }
 
 	  
-	  // Function TEST
-	   /*
+	  /**Function TEST
+	   
 	  public static void main(String[] args) {
 		  
 		  	if (OS_Detection.getOperatingSystemType().toString() == "Linux") {
@@ -69,6 +69,6 @@ public class file_functions {
 		  	}
 		  	
 	}
-	*/
+	**/
 
 }
