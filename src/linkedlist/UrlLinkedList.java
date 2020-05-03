@@ -1,14 +1,18 @@
 package linkedlist;
+
+import tree.Tree;
+import tree.Tree.treeNode;
+
 //A complete working Java program to demonstrate deletion in singly 
 //linked list 
 public class UrlLinkedList { 
  static Node head; // head of list 
 
  /* Linked list Node*/
- class Node 
+ public class Node 
  { 
-     String data; 
-     Node next; 
+     public String data; 
+     public Node next; 
      Node(String d) 
      { 
          data = d; 
@@ -65,23 +69,23 @@ public class UrlLinkedList {
          System.out.println(tnode.data+" "); 
          tnode = tnode.next; 
      } 
- } 
- public void addtreeList() 
- { 
-     Node tnode = head; 
-     while (tnode != null) 
-     { 
-         System.out.print(tnode.data+" "); 
-         tnode = tnode.next; 
-     } 
  }
+ 
+
+
+ 
+ public Node returnnode() {
+	 return head;
+ }
+
  public static boolean contains(String index) 
  { 
      Node current = head; 
 
      while (current != null) 
      { 
-         if (current.data == index) 
+         // if (current.data == index) this method has a issue with scanner.
+    	 if (0 == current.data.compareTo(index))
              return true; 
          current = current.next; 
      } 

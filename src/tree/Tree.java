@@ -1,11 +1,14 @@
 package tree;
-
+import downloader.*;
 public class Tree { 
     public static class treeNode {    
     public int value;
     String URL;
         treeNode left, right; 
-          
+        
+        public treeNode(){ 
+            
+        }
         public treeNode(int value, String URL){ 
             this.value = value; 
             left = null; 
@@ -38,10 +41,22 @@ public class Tree {
      public static void traverseReverseInOrder(treeNode node) {
         if (node != null) {
         	traverseReverseInOrder(node.right);
-            System.out.print(" " + node.value + node.URL);
+        	if (node.value != 0) {
+            System.out.println(" " + node.value + node.URL);
+        	}
             traverseReverseInOrder(node.left);
         }
      }
+     public static void proccessDownload(treeNode node) {
+         if (node != null) {
+        	 proccessDownload(node.right);
+        	 if (node.value != 0) {
+             System.out.println(" " + node.value + "\t" + node.URL);
+             downloader.run(node.URL);
+        	 }
+             proccessDownload(node.left);
+         }
+      }
      
    
  }

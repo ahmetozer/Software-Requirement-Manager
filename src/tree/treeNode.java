@@ -6,6 +6,9 @@ public class treeNode {
 	treeNode leftChild, rightChild;
 	String url;
 	
+	treeNode() {
+		
+	}
 	treeNode(int key, String url, treeNode leftChild, treeNode rightChild) {
 		this.key = key;
 		this.leftChild = leftChild;
