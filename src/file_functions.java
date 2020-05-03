@@ -32,6 +32,12 @@ public class file_functions {
 	    int sep = fullPath.lastIndexOf(pathSeparator);
 	    return fullPath.substring(sep + 1, dot);
 	  }
+	  public String projetName() {
+		  pathSeparator = '/'; 
+		  int dot = fullPath.lastIndexOf(extensionSeparator);
+		  int sep = fullPath.lastIndexOf(pathSeparator);
+		  return fullPath.substring(sep + 1, dot);
+	  }
 
 	  public String path() {
 	    int sep = fullPath.lastIndexOf(pathSeparator);
