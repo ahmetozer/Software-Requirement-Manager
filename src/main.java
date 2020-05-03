@@ -9,24 +9,32 @@ import java.util.Scanner;
 import com.sun.org.apache.xerces.internal.util.URI;
 import com.sun.org.apache.xerces.internal.util.URI.MalformedURIException;
 
+import linkedlist.UrlLinkedList;
+
 import java.io.FileWriter;
 import java.io.IOException;
 
+import tree.Tree;
+import tree.Tree.treeNode;
+
+import linkedlist.*;
 public class main {
 
 	public static void main(String[] args) {
-		
+		UrlLinkedList llist = new UrlLinkedList(); 
 		SRMNode SRVLinkedlist;
 		File tmpDir = new File("required.srm");
-		print_from_web();
+		
+		
+		//print_from_web();
 		boolean exists = tmpDir.exists();
 		String[] mymainsrm;
 		//file procces part
 		if (exists) {
 			mymainsrm = getSrmFrom.File("required.srm");
 			for (int i = 0; i < mymainsrm.length; i++) { 
-				echo(mymainsrm[i]);
-				download_and_extract(mymainsrm[i]);
+				//echo(mymainsrm[i]);
+				llist.push(mymainsrm[i]); 
 			//	file_functions  myHomePage = new file_functions (mymainsrm[i]);  
 			//	System.out.println("Filename = " + myHomePage.projetName());
 	        } 
@@ -36,12 +44,35 @@ public class main {
 		}
 		
 		
+		Tree btree = new Tree();
+        treeNode root = new treeNode(5,"a10");
+        System.out.println("Binary Tree Example");
+        System.out.println("Building tree with root value " + root.value);
+        btree.insert(root, 2, "a1");
+        btree.insert(root, 4, "a2");
+        btree.insert(root, 8, "a3");
+        btree.insert(root, 6, "a4");
+        btree.insert(root, 7, "a5");
+        btree.insert(root, 3, "a6");
+        btree.insert(root, 9, "a7");
+        btree.insert(root, 10, "a8");
+        btree.insert(root, 1, "a9");
+        System.out.println("Traversing Reverse tree in order");
+        btree.traverseReverseInOrder(root);
+        System.out.println("\n\n\nLinkedList");
+       
 		
-		
-		
-		
-		// download tree
-		
+        urllink2();
+
+	     System.out.println("\nCreated Linked list is:"); 
+	     llist.printList(); 
+
+	     llist.deleteNode("https://www.google.com");
+	     llist.deleteNode("1");
+
+	     System.out.println("\n\nLinked List after Deletion at position 4:"); 
+	     llist.printList(); 
+	     System.out.println("\n\n");
 		
 		
 		
@@ -169,6 +200,24 @@ public class main {
 				}
 		
 	}
+	
+	
+	 public static void urllink2() 	 { 
+	     UrlLinkedList llist = new UrlLinkedList(); 
+	 	// download tree
+	        llist.push("7"); 
+		     llist.push("1"); 
+		     llist.push("3"); 
+		     llist.push("2");
+		     llist.push("https://www.google.com");
+		     llist.push("facebook://www.fb.com");
+		     
+		     llist.push("facebook://www.fb.com");
+		     llist.push("facebook://www.fb.com");
+		     //llist.con
+	     
+	     //System.out.print(contains("7"));
+	 } 
 	
 }
 
