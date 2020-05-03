@@ -7,13 +7,14 @@ import java.io.InputStreamReader;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
+// Zip Liblary to extarct downloaded files from web.
 public class zip{
 	static void unzip() {
 		System.out.println("UNZIP: Zip file directory is not defined. Please give a zip file");
 	}
 	static void unzip(String zipFilePath) {
 		System.out.println("UNZIP: Zip output directory is not defined. So files extracted to /get folder");
-		unzip(zipFilePath, "/get");
+		unzip(zipFilePath, "get");
 	}
 
 	static void unzip(String zipFilePath, String path)  {
@@ -26,23 +27,18 @@ public class zip{
 		  } else if (OS_Detection.getOperatingSystemType().toString() == "Windows") {
 			  command = "powershell -Command Expand-Archive -Force "+zipFilePath+" " + path;
 		  } else {
-			  System.out.println("Error : OS Type not supported");
+			  System.out.println("Error\t: OS is not supported");
 			  return;
 		  }
 		
 		 
 		try {
-			Process process = Runtime.getRuntime().exec(command);
-			// deal with OutputStream to send inputs
-			process.getOutputStream();
-			 
-			// deal with InputStream to get ordinary outputs
-			process.getInputStream();
-			 
-			// deal with ErrorStream to get error outputs
-			process.getErrorStream();
+			Process ZipCommandPipe = Runtime.getRuntime().exec(command);
+			ZipCommandPipe.getOutputStream();
+			ZipCommandPipe.getInputStream();
+			ZipCommandPipe.getErrorStream();
 		    BufferedReader reader = new BufferedReader(
-		            new InputStreamReader(process.getInputStream()));
+		            new InputStreamReader(ZipCommandPipe.getInputStream()));
 		    String line;
 		    while ((line = reader.readLine()) != null) {
 		        System.out.println(line);

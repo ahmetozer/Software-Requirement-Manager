@@ -8,7 +8,7 @@ public class SRMNode {
 		next = null;
 	}
 
-	public Repository getStudent() {
+	public Repository getRepository() {
 		return repository;
 	}
 
